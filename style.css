@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color:black;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.toast-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.toast-icon {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: var(--tr);
+}
+:root {
+    --tr: all 0.3s ease 0s;
+    --ch1: #05478a;   
+    --ch2: #0070e0;    
+    --cs1: #005e38;    
+    --cs2: #03a65a;    
+    --cw1: #c24914;    
+    --cw2: #fc8621;  
+    --cel: #851d41;    
+    --ce2: #db3056;    
+}
+.icon-help {
+    background-color: var(--ch1);
+}
+.icon-help:hover {
+    background-color: var(--ch2);
+}
+.icon-success {
+    background-color: var(--cs1);
+}
+.icon-success:hover {
+    background-color: var(--cs2);
+}
+.icon-warning {
+    background-color: var(--cw1);
+}
+.icon-warning:hover {
+    background-color: var(--cw2);
+}
+.icon-error {
+    background-color: var(--cel);
+}
+.icon-error:hover {
+    background-color: var(--ce2);
+}
+.hidden-checkbox {
+    display: none;
+}
+.notification {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.2s ease, bottom 0.2s ease;
+    z-index: 100;
+    max-width: 300px;
+    text-align: left;
+}
+.notification strong {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        bottom: 50%;
+    }
+    10% {
+        opacity: 1;
+        bottom: 60%;
+    }
+    90% {
+        opacity: 1;
+        bottom: 60%;
+    }
+    100% {
+        opacity: 0;
+        bottom: 50%;
+    }
+}
+#help-checkbox:checked ~ .help-notification {
+    animation: fadeInOut 1s forwards;
+}
+#success-checkbox:checked ~ .success-notification {
+    animation: fadeInOut 2s forwards;
+}
+#warning-checkbox:checked ~ .warning-notification {
+    animation: fadeInOut 2s forwards;
+}
+#error-checkbox:checked ~ .error-notification {
+    animation: fadeInOut 2s forwards;
+}
